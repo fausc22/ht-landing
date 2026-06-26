@@ -2,34 +2,53 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { ArrowRight, Leaf, PackageCheck } from "lucide-react";
 import { site } from "@/lib/site";
 
 export function Hero() {
   return (
     <section
       id="hero"
-      className={cn(
-        "relative flex min-h-[85vh] items-center justify-center overflow-hidden px-4 pt-20 pb-16",
-        "sm:px-6 sm:pt-24 lg:px-8"
-      )}
+      className="relative flex min-h-[88vh] items-center overflow-hidden px-4 pt-24 pb-20 sm:px-6 sm:pt-28 lg:px-8"
     >
-      {/* Placeholder: imagen de fondo. Reemplazar por next/image con src real */}
-      <div
-        className="absolute inset-0 bg-zinc-100 dark:bg-zinc-900"
-        aria-hidden
-      >
-        <div className="absolute inset-0 flex items-center justify-center text-zinc-300 dark:text-zinc-600 text-sm">
-          [ Imagen de fondo: campo / semillas / Huinca Renanco ]
-        </div>
+      <div className="absolute inset-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          style={{
+            minWidth: "100%",
+            minHeight: "100%",
+            width: "auto",
+            height: "auto",
+          }}
+          aria-label="Campo y agricultura - HT Semillas"
+        >
+          <source src="/images/video-final.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/45" aria-hidden />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-3xl text-center">
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl gap-10 lg:grid-cols-[1.05fr_0.75fr] lg:items-end">
+        <div>
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45 }}
+            className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/12 px-4 py-2 text-sm font-medium text-white backdrop-blur-md"
+          >
+            <Leaf className="size-4" />
+            {site.location}
+          </motion.div>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-5xl lg:text-6xl"
+            className="mt-6 max-w-4xl text-5xl font-semibold tracking-tight text-white drop-shadow-md sm:text-6xl lg:text-7xl"
         >
           {site.name}
         </motion.h1>
@@ -37,37 +56,51 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="mt-6 text-lg leading-8 text-zinc-600 dark:text-zinc-400 sm:text-xl"
+            className="mt-6 max-w-2xl text-lg leading-8 text-stone-100 sm:text-xl"
         >
-          Híbridos Don Mario, alfalfa y agroquímicos al mejor precio.{" "}
-          <span className="font-medium text-zinc-700 dark:text-zinc-300">
-            {site.location}
-          </span>
+            Semillas, agroquímicos y una salida comercial clara para productores
+            que quieren convertir hectáreas de alfalfa en heno con demanda
+            organizada.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+            className="mt-10 flex flex-col gap-4 sm:flex-row"
         >
           <Link
-            href="/contacto"
-            className={cn(
-              "inline-flex h-12 items-center justify-center rounded-full bg-zinc-900 px-6 text-sm font-medium text-white transition-colors hover:bg-zinc-800",
-              "dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200"
-            )}
+              href="/produccion-alfalfa"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-lg transition-colors hover:bg-primary/90"
           >
-            Consultar productos
+              Vender alfalfa a HT
+              <ArrowRight className="size-4" />
           </Link>
           <Link
-            href="/productos"
-            className={cn(
-              "inline-flex h-12 items-center justify-center rounded-full border border-zinc-300 px-6 text-sm font-medium text-zinc-700 transition-colors hover:border-zinc-400 hover:bg-zinc-50",
-              "dark:border-zinc-600 dark:text-zinc-300 dark:hover:bg-zinc-800"
-            )}
+              href="/productos-servicios"
+              className="inline-flex h-12 items-center justify-center rounded-full border border-white/70 bg-white/10 px-6 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
           >
             Ver productos
           </Link>
+        </motion.div>
+        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
+          className="grid gap-3 rounded-lg border border-white/20 bg-white/12 p-4 text-white shadow-2xl backdrop-blur-md"
+        >
+          {[
+            "Compra y comercialización de alfalfa",
+            "Clientes preparados para recibir volumen",
+            "Insumos y asesoramiento para la campaña",
+          ].map((item) => (
+            <div key={item} className="flex items-center gap-3">
+              <span className="flex size-9 shrink-0 items-center justify-center rounded-md bg-white/15">
+                <PackageCheck className="size-4" />
+              </span>
+              <span className="text-sm font-medium leading-5">{item}</span>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>

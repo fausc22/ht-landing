@@ -8,31 +8,25 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer
-      className={cn(
-        "border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/50"
-      )}
-    >
+    <footer className="border-t border-border bg-muted">
       <div
         className={cn(
-          "mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-4 py-8",
-          "sm:flex-row sm:px-6 lg:px-8"
+          "mx-auto grid max-w-6xl gap-8 px-4 py-10",
+          "sm:px-6 md:grid-cols-[1fr_auto] lg:px-8"
         )}
       >
-        <div className="text-center sm:text-left">
-          <p className="text-sm font-medium text-zinc-900 dark:text-zinc-50">
-            {site.name}
-          </p>
-          <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-            {site.location}
+        <div>
+          <p className="text-sm font-medium text-foreground">{site.name}</p>
+          <p className="mt-2 max-w-md text-sm leading-6 text-muted-foreground">
+            {site.tagline}. Base en {site.location}.
           </p>
         </div>
-        <ul className="flex gap-6 text-sm">
+        <ul className="flex flex-wrap gap-x-6 gap-y-3 text-sm md:justify-end">
           {footerLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
+                className="text-muted-foreground transition-colors hover:text-primary"
               >
                 {link.label}
               </Link>
@@ -40,8 +34,8 @@ export function Footer() {
           ))}
         </ul>
       </div>
-      <div className="border-t border-zinc-200 px-4 py-4 dark:border-zinc-800">
-        <p className="text-center text-sm text-zinc-500 dark:text-zinc-400">
+      <div className="border-t border-border px-4 py-4">
+        <p className="text-center text-sm text-muted-foreground">
           © {year} {site.name}. Todos los derechos reservados.
         </p>
       </div>

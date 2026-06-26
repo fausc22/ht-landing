@@ -12,14 +12,21 @@ src/
 │   ├── layout.tsx              # Root layout: metadata SEO, fuentes, Header + Footer
 │   ├── page.tsx                # Home
 │   ├── globals.css
-│   ├── productos/
-│   │   └── page.tsx            # Productos (semillas, alfalfa, agroquímicos)
+│   ├── produccion-alfalfa/
+│   │   └── page.tsx            # Producción de Alfalfa (página central)
+│   ├── productos-servicios/
+│   │   └── page.tsx            # Productos y Servicios (semillas, insumos, agroquímicos, comercialización)
 │   ├── nosotros/
 │   │   └── page.tsx            # Quiénes somos, ubicación
 │   └── contacto/
 │       └── page.tsx            # Formulario y datos de contacto
 ├── components/
-│   ├── ui/                     # Reutilizables, sin lógica de negocio
+│   ├── ui/                     # Reutilizables (shadcn + Container)
+│   │   ├── button.tsx
+│   │   ├── card.tsx
+│   │   ├── input.tsx
+│   │   ├── label.tsx
+│   │   ├── textarea.tsx
 │   │   └── Container.tsx       # Ancho máximo y padding consistente
 │   ├── layout/
 │   │   ├── Header.tsx          # Navbar + logo
@@ -32,8 +39,9 @@ src/
 │       ├── About.tsx
 │       └── Contact.tsx
 ├── lib/
-│   ├── utils.ts                # cn() y helpers mínimos
-│   └── site.ts                 # Datos del sitio: nav, nombre, ubicación (single source of truth)
+│   ├── utils.ts                # cn() (clsx + tailwind-merge)
+│   ├── site.ts                 # Datos del sitio: nav, nombre, ubicación (single source of truth)
+│   └── motion.ts               # Criterios Framer Motion (duración, viewport once, ease)
 └── (opcional) types/           # Solo si aparecen tipos compartidos
 ```
 

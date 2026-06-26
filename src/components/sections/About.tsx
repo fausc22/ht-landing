@@ -1,7 +1,7 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
 import { Container } from "@/components/ui/Container";
 import { site } from "@/lib/site";
 
@@ -9,9 +9,7 @@ export function About() {
   return (
     <section
       id="nosotros"
-      className={cn(
-        "scroll-mt-20 border-t border-zinc-200 py-20 dark:border-zinc-800"
-      )}
+      className="scroll-mt-20 border-t border-stone-200 bg-stone-50/50 py-20"
     >
       <Container>
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
@@ -21,19 +19,20 @@ export function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
-              Sobre {site.name}
+            <h2 className="text-3xl font-semibold tracking-tight text-stone-900 sm:text-4xl">
+              Una empresa agropecuaria pensada para resolver campaña y venta
             </h2>
-            <p className="mt-6 text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-              En {site.location} trabajamos con híbridos Don Mario, variedades de
-              alfalfa (AlphaTec, Hybriforce, Magna) y una amplia línea de
-              agroquímicos al mejor precio. Nuestro objetivo es acompañar al
-              productor con calidad y precios competitivos.
+            <p className="mt-6 text-lg leading-8 text-stone-600">
+              En {site.location}, {site.name} trabaja cerca del productor con
+              dos necesidades muy concretas: conseguir insumos confiables para
+              sembrar y transformar producción de alfalfa en una venta
+              organizada.
             </p>
-            <p className="mt-4 text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-              Consultanos por semillas para tu planificación de campaña o por
-              tu lista de agroquímicos; te respondemos con disponibilidad y
-              precios.
+            <p className="mt-4 text-lg leading-8 text-stone-600">
+              La propuesta combina semillas, agroquímicos, conocimiento del
+              cultivo y red comercial. Si el productor tiene tierra apta,
+              manejo y decisión de producir volumen, HT puede acompañar desde la
+              planificación hasta la colocación del heno.
             </p>
           </motion.div>
           <motion.div
@@ -41,12 +40,15 @@ export function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className={cn(
-              "rounded-2xl bg-zinc-100 dark:bg-zinc-800/50",
-              "aspect-video flex items-center justify-center text-zinc-500 dark:text-zinc-400 text-sm"
-            )}
+            className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-stone-200 shadow-md"
           >
-            [ Imagen: equipo / local / campo ]
+            <Image
+              src="/images/campo-alfalfa.jpg"
+              alt="Lote de alfalfa en producción"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
           </motion.div>
         </div>
       </Container>
