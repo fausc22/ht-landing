@@ -1,0 +1,2 @@
+import { InternalPage } from "@/components/sections/InternalPage"; import { createMetadata } from "@/lib/metadata";
+export const metadata = createMetadata("es", "processing"); export default function Page(){ return <InternalPage locale="es" page="processing"/>; }
