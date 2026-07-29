@@ -43,26 +43,26 @@ export function Home({ locale }: { locale: Locale }) {
   const es = locale === "es";
   const intents = es
     ? [
-        { icon: Sprout, title: "Comprar semillas o insumos", text: "Encontrá una respuesta comercial para tu próxima campaña.", href: `${localizedPath(locale, "contact")}?motivo=comprar` },
+        { icon: Sprout, title: "Comprar semillas o insumos", text: "Resolvé tu próxima campaña con una respuesta comercial concreta.", href: `${localizedPath(locale, "contact")}?motivo=comprar` },
         { icon: Handshake, title: "Ofrecer producción", text: "Presentanos producto, ubicación y disponibilidad.", href: `${localizedPath(locale, "contact")}?motivo=ofrecer-produccion` },
         { icon: Globe2, title: "Explorar comercio internacional", text: "Iniciá una conversación de abastecimiento o distribución.", href: `${localizedPath(locale, "contact")}?motivo=internacional` },
       ]
     : [
-        { icon: Sprout, title: "Source seeds or supplies", text: "Talk to our team about your next agricultural campaign.", href: `${localizedPath(locale, "contact")}?intent=buy` },
-        { icon: Handshake, title: "Offer production", text: "Introduce your product, location and availability.", href: `${localizedPath(locale, "contact")}?intent=supply` },
+        { icon: Sprout, title: "Source seeds or crop inputs", text: "Get a clear commercial answer for your next campaign.", href: `${localizedPath(locale, "contact")}?intent=buy` },
+        { icon: Handshake, title: "Offer production", text: "Share your product, location and availability.", href: `${localizedPath(locale, "contact")}?intent=supply` },
         { icon: Globe2, title: "Explore international trade", text: "Start a sourcing or distribution conversation.", href: `${localizedPath(locale, "contact")}?intent=international` },
       ];
   const solutions = es
     ? [
-        { icon: Sprout, title: "Semillas", text: "Soja, trigo, maíz, pasturas y alternativas sujetas a disponibilidad.", anchor: "semillas" },
-        { icon: Wheat, title: "Insumos agrícolas", text: "Soluciones para acompañar decisiones productivas y comerciales.", anchor: "insumos-agricolas" },
-        { icon: Leaf, title: "Insumos veterinarios", text: "Una línea vinculada a sistemas ganaderos y producción animal.", anchor: "insumos-veterinarios" },
+        { icon: Sprout, title: "Semillas", text: "Soja, trigo, maíz, pasturas y alfalfa según campaña y disponibilidad.", anchor: "semillas" },
+        { icon: Wheat, title: "Insumos agrícolas", text: "Insumos para acompañar la planificación de tu campaña.", anchor: "insumos-agricolas" },
+        { icon: Leaf, title: "Insumos veterinarios", text: "Línea orientada a sistemas ganaderos y producción animal.", anchor: "insumos-veterinarios" },
         { icon: Settings2, title: "Procesamiento", text: "Selección, acondicionamiento y preparación comercial.", anchor: "procesamiento" },
       ]
     : [
-        { icon: Sprout, title: "Seeds", text: "Soybean, wheat, corn and forage alternatives subject to availability.", anchor: "seeds" },
-        { icon: Wheat, title: "Agricultural supplies", text: "Solutions supporting productive and commercial decisions.", anchor: "agricultural-supplies" },
-        { icon: Leaf, title: "Veterinary supplies", text: "A business line linked to livestock and animal production systems.", anchor: "veterinary-supplies" },
+        { icon: Sprout, title: "Seeds", text: "Soybean, wheat, corn, forage and alfalfa by campaign and availability.", anchor: "seeds" },
+        { icon: Wheat, title: "Crop inputs", text: "Inputs that support campaign planning and production decisions.", anchor: "agricultural-supplies" },
+        { icon: Leaf, title: "Veterinary supplies", text: "A line serving livestock and animal production systems.", anchor: "veterinary-supplies" },
         { icon: Settings2, title: "Processing", text: "Grading, conditioning and commercial preparation.", anchor: "processing" },
       ];
 

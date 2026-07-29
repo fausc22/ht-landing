@@ -1,15 +1,33 @@
 export const locales = ["es", "en"] as const;
 export type Locale = (typeof locales)[number];
 
+const DEFAULT_EMAIL = "info@htsemillas.com";
+const DEFAULT_WHATSAPP = "5492302531296";
+const DEFAULT_PHONE = "+54 9 2302 531296";
+
 export const site = {
   name: "HT Semillas S.A.",
   shortName: "HT Semillas",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://htsemillas.com.ar",
   location: "Huinca Renancó, Córdoba, Argentina",
   region: "Sur de Córdoba, este de San Luis y norte de La Pampa",
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "",
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "",
-  phone: process.env.NEXT_PUBLIC_PHONE_NUMBER ?? "",
+  address: {
+    street: "José Galaverna 700",
+    postalCode: "6270",
+    locality: "Huinca Renancó",
+    region: "Córdoba",
+    country: "Argentina",
+    countryCode: "AR",
+    full: "José Galaverna 700, CP 6270, Huinca Renancó, Córdoba, Argentina",
+  },
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || DEFAULT_EMAIL,
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || DEFAULT_WHATSAPP,
+  phone: process.env.NEXT_PUBLIC_PHONE_NUMBER || DEFAULT_PHONE,
+  phones: ["+54 9 2302 531296", "+54 9 2302 579107"] as const,
+  teamEmails: [
+    { label: "Marcelo Houriet", email: "mhouriet.htsemillas@gmail.com" },
+    { label: "Carlos Tosso", email: "carlos.htsemillas@gmail.com" },
+  ] as const,
 } as const;
 
 export function isLocale(value: string): value is Locale {
@@ -65,4 +83,12 @@ export function alternatePath(pathname: string, target: Locale) {
 
 export function absoluteUrl(path: string) {
   return new URL(path, site.url).toString();
+}
+
+export function telHref(phone: string) {
+  return `tel:${phone.replace(/[^\d+]/g, "")}`;
+}
+
+export function whatsappDigits(value = site.whatsapp) {
+  return value.replace(/\D/g, "");
 }

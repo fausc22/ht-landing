@@ -5,11 +5,18 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: site.shortName, template: `%s | ${site.shortName}` },
-  description: "Soluciones agroindustriales desde Huinca Renancó, Córdoba, Argentina.",
+  title: {
+    default: "HT Semillas | Producción que trasciende fronteras",
+    template: "HT Semillas | %s",
+  },
+  description: "Semillas, insumos, procesamiento, alfalfa y comercio internacional desde Huinca Renancó, Córdoba, Argentina.",
   applicationName: site.shortName,
   icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }, { url: "/favicon.ico", sizes: "any" }],
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
     apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180" }],
   },
 };

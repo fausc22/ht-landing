@@ -31,10 +31,10 @@ export function LeadForm({ locale }: { locale: Locale }) {
     intent: "Motivo de consulta", name: "Nombre y apellido", company: "Empresa (opcional)", email: "Correo electrónico", phone: "Teléfono o WhatsApp (opcional)", location: "Localidad y provincia / país", message: "Mensaje", send: "Enviar consulta",
     placeholder: "Contanos qué producto, servicio u oportunidad querés conversar.", privacy: "Usaremos estos datos únicamente para responder tu consulta.",
   } : {
-    intent: "Enquiry type", name: "Full name", company: "Company (optional)", email: "Email", phone: "Phone or WhatsApp (optional)", location: "City and country", message: "Message", send: "Send enquiry",
-    placeholder: "Tell us about the product, service or business opportunity you would like to discuss.", privacy: "We will only use these details to reply to your enquiry.",
+    intent: "Enquiry type", name: "Full name", company: "Company (optional)", email: "Email", phone: "Phone or WhatsApp (optional)", location: "City, province / country", message: "Message", send: "Send enquiry",
+    placeholder: "Tell us which product, service or opportunity you would like to discuss.", privacy: "We will only use these details to reply to your enquiry.",
   };
-  const options = es ? [["buy","Comprar semillas o insumos"],["supply","Ofrecer producción"],["processing","Procesamiento o acondicionamiento"],["alfalfa","Alfalfa y nutrición animal"],["international","Comercio internacional"],["institutional","Consulta institucional"],["other","Otra consulta"]] : [["buy","Source seeds or supplies"],["supply","Offer production"],["processing","Processing or conditioning"],["alfalfa","Alfalfa and animal nutrition"],["international","International trade"],["institutional","Institutional enquiry"],["other","Other"]];
+  const options = es ? [["buy","Comprar semillas o insumos"],["supply","Ofrecer producción"],["processing","Procesamiento o acondicionamiento"],["alfalfa","Alfalfa y nutrición animal"],["international","Comercio internacional"],["institutional","Consulta institucional"],["other","Otra consulta"]] : [["buy","Source seeds or crop inputs"],["supply","Offer production"],["processing","Processing or conditioning"],["alfalfa","Alfalfa and animal nutrition"],["international","International trade"],["institutional","Institutional enquiry"],["other","Other"]];
   const field = "mt-2 w-full rounded-xl border border-line bg-white px-4 py-3.5 text-ink placeholder:text-ink/35 focus:border-forest";
   return <form onSubmit={submit} className="card grid gap-5 p-6 sm:p-8" onFocus={() => trackEvent("form_start", { locale })}>
     <label className="sr-only" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off" /></label>

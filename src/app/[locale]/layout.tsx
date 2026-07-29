@@ -4,9 +4,11 @@ import { Header } from "@/components/layout/Header";
 import { DocumentLang } from "@/components/layout/DocumentLang";
 import { WhatsAppButton } from "@/components/contact/WhatsAppButton";
 import { getContent } from "@/lib/content";
-import { isLocale, locales } from "@/lib/site";
+import { isLocale, locales, site } from "@/lib/site";
 
-export function generateStaticParams() { return locales.map((locale) => ({ locale })); }
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
 export default async function LocaleLayout({ children, params }: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
   const { locale: value } = await params;
@@ -15,9 +17,18 @@ export default async function LocaleLayout({ children, params }: { children: Rea
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "HT Semillas S.A.",
-    url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://htsemillas.com.ar",
-    address: { "@type": "PostalAddress", addressLocality: "Huinca Renancó", addressRegion: "Córdoba", addressCountry: "AR" },
+    name: site.name,
+    url: site.url,
+    email: site.email,
+    telephone: site.phone,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: site.address.street,
+      postalCode: site.address.postalCode,
+      addressLocality: site.address.locality,
+      addressRegion: site.address.region,
+      addressCountry: site.address.countryCode,
+    },
     areaServed: ["Sur de Córdoba", "Este de San Luis", "Norte de La Pampa"],
   };
   return (

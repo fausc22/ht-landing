@@ -2,8 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { getContent } from "@/lib/content";
-import { contactPlaceholders } from "@/lib/contact-links";
-import { localizedPath, site, type Locale, type PageKey } from "@/lib/site";
+import { localizedPath, site, telHref, whatsappDigits, type Locale, type PageKey } from "@/lib/site";
 
 export function Footer({ locale }: { locale: Locale }) {
   const copy = getContent(locale);
@@ -39,47 +38,33 @@ export function Footer({ locale }: { locale: Locale }) {
           <div className="mt-4 grid gap-3 text-sm text-white/75">
             <p>
               <span className="block text-xs font-bold uppercase tracking-wider text-sage/80">WhatsApp</span>
-              {site.whatsapp ? (
-                <a href={`https://wa.me/${site.whatsapp.replace(/\D/g, "")}`} className="hover:text-white">
-                  {site.whatsapp}
-                </a>
-              ) : (
-                <span className="text-gold/90">{contactPlaceholders.whatsapp}</span>
-              )}
+              <a href={`https://wa.me/${whatsappDigits()}`} className="hover:text-white">
+                {site.phones[0]}
+              </a>
             </p>
             <p>
               <span className="block text-xs font-bold uppercase tracking-wider text-sage/80">Email</span>
-              {site.email ? (
-                <a href={`mailto:${site.email}`} className="hover:text-white">
-                  {site.email}
-                </a>
-              ) : (
-                <span className="text-gold/90">{contactPlaceholders.email}</span>
-              )}
+              <a href={`mailto:${site.email}`} className="hover:text-white">
+                {site.email}
+              </a>
             </p>
             <p>
               <span className="block text-xs font-bold uppercase tracking-wider text-sage/80">
-                {locale === "es" ? "Teléfono" : "Phone"}
+                {locale === "es" ? "Teléfonos" : "Phones"}
               </span>
-              {site.phone ? (
-                <a href={`tel:${site.phone}`} className="hover:text-white">
-                  {site.phone}
+              {site.phones.map((phone) => (
+                <a key={phone} href={telHref(phone)} className="mt-1 block hover:text-white">
+                  {phone}
                 </a>
-              ) : (
-                <span className="text-gold/90">{contactPlaceholders.phone}</span>
-              )}
+              ))}
             </p>
             <p>
               <span className="block text-xs font-bold uppercase tracking-wider text-sage/80">
                 {locale === "es" ? "Dirección" : "Address"}
               </span>
-              <span className="text-gold/90">{contactPlaceholders.address}</span>
+              <span className="mt-1 block text-white/80">{site.address.full}</span>
             </p>
-            <p className="pt-2 text-white/65">
-              {site.location}
-              <br />
-              {site.region}
-            </p>
+            <p className="pt-2 text-white/65">{site.region}</p>
           </div>
         </div>
 
@@ -93,9 +78,8 @@ export function Footer({ locale }: { locale: Locale }) {
           <div>
             <p className="eyebrow text-sage">{copy.footer.legal}</p>
             <div className="mt-3 grid gap-2 text-sm text-white/55">
-              <span>{copy.footer.privacy} — [PENDIENTE]</span>
-              <span>{copy.footer.terms} — [PENDIENTE]</span>
-              <span className="text-white/40">{copy.footer.linkedCompany}</span>
+              <span>{copy.footer.privacy} — {copy.footer.comingSoon}</span>
+              <span>{copy.footer.terms} — {copy.footer.comingSoon}</span>
             </div>
           </div>
         </div>

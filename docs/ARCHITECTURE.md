@@ -24,9 +24,10 @@ Sitio institucional híbrido de HT Semillas. No contiene infraestructura para Ma
 - Las variantes de ruta incorrectas redirigen a la URL canónica.
 - Las novedades se validan antes de publicarse.
 - El formulario no cae a `mailto`: falla de forma explícita si el servicio no está configurado.
-- WhatsApp, correo y teléfono no se renderizan mientras no exista un valor aprobado (placeholders evidentes `[PENDIENTE: …]`).
+- WhatsApp, correo, teléfono y dirección oficiales están centralizados en `site.ts` (con override por env).
 - El movimiento es progresivo y respeta `prefers-reduced-motion`.
 - El mapa regional es un placeholder SVG hasta contar con el recurso definitivo.
+- Los títulos de pestaña usan el formato `HT Semillas | {sección}`.
 
 ## Contenido sensible
 

@@ -1,4 +1,4 @@
-import { site, type Locale } from "@/lib/site";
+import { site, whatsappDigits, type Locale } from "@/lib/site";
 
 export type ContactIntent =
   | "general"
@@ -29,12 +29,12 @@ const messages: Record<Locale, Record<ContactIntent, string>> = {
     general: "Hello, I visited the HT Semillas website and would like to make a business enquiry.",
     home: "Hello, I’m writing from the HT Semillas homepage and would like to speak with the commercial team.",
     company: "Hello, I reviewed the Company page and would like to learn more about HT Semillas.",
-    solutions: "Hello, I’m enquiring about HT Semillas solutions (seeds / supplies).",
-    processing: "Hello, I’m enquiring about processing and conditioning capabilities.",
-    alfalfa: "Hello, I’m enquiring about alfalfa and animal nutrition.",
-    international: "Hello, I’m enquiring about international trade / export.",
+    solutions: "Hello, I’m enquiring about HT Semillas solutions (seeds / crop inputs).",
+    processing: "Hello, I’m enquiring about seed conditioning and processing capabilities.",
+    alfalfa: "Hello, I’m enquiring about alfalfa and animal nutrition products.",
+    international: "Hello, I’m enquiring about international trade / export opportunities.",
     contact: "Hello, I’m writing from the HT Semillas Contact page.",
-    buy: "Hello, I’d like to enquire about sourcing seeds or supplies.",
+    buy: "Hello, I’d like to enquire about sourcing seeds or crop inputs.",
     supply: "Hello, I’d like to offer production to HT Semillas.",
   },
 };
@@ -42,7 +42,7 @@ const messages: Record<Locale, Record<ContactIntent, string>> = {
 export function whatsappHref(locale: Locale, intent: ContactIntent = "general") {
   if (!site.whatsapp) return null;
   const text = messages[locale][intent] ?? messages[locale].general;
-  return `https://wa.me/${site.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(text)}`;
+  return `https://wa.me/${whatsappDigits()}?text=${encodeURIComponent(text)}`;
 }
 
 export function intentFromPath(pathname: string): ContactIntent {
@@ -55,11 +55,3 @@ export function intentFromPath(pathname: string): ContactIntent {
   if (pathname === "/es" || pathname === "/en") return "home";
   return "general";
 }
-
-/** Visible placeholders — never invent real-looking contact data. */
-export const contactPlaceholders = {
-  whatsapp: "[PENDIENTE: WhatsApp oficial]",
-  email: "[PENDIENTE: correo corporativo]",
-  phone: "[PENDIENTE: teléfono oficial]",
-  address: "[PENDIENTE: dirección autorizada]",
-} as const;

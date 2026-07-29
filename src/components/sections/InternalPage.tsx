@@ -27,13 +27,24 @@ const configs: Record<Locale, Record<InternalKey, Config>> = {
   es: {
     company: {
       eyebrow: "Empresa",
-      title: "Experiencia agropecuaria con mirada de futuro",
-      intro: "HT Semillas desarrolla soluciones comerciales desde Huinca Renancó, integrando conocimiento regional, relaciones de largo plazo y nuevas oportunidades para la producción argentina.",
+      title: "Quiénes somos",
+      intro: "HT Semillas S.A. es una empresa radicada en Huinca Renancó, Córdoba, con una década de trayectoria en el negocio agropecuario. Brindamos soluciones comerciales al productor y a la cadena, con proyección hacia el comercio internacional.",
       image: "/images/company/field-vision.jpg",
       sections: [
-        { title: "Una empresa conectada con el territorio", text: "La actividad comenzó vinculada a la comercialización de semillas y se amplió hacia insumos agrícolas, soluciones para la producción animal y comercio internacional.", points: ["Sur de Córdoba", "Este de San Luis", "Norte de La Pampa"] },
-        { title: "Conocimiento de toda la cadena", text: "El trabajo cotidiano vincula productores, contratistas, acopios, procesadores, plantas de acondicionamiento, proveedores y compradores. Esa red permite comprender cada operación más allá del producto." },
-        { title: "Criterio técnico y comercial", text: "HT combina capacidades de administración, producción agropecuaria, nutrición animal y desarrollo comercial. La información personal del equipo se incorporará cuando cuente con aprobación expresa." },
+        {
+          title: "Historia y evolución",
+          text: "La actividad comenzó orientada a la comercialización de semillas—principalmente soja y trigo—y se amplió hacia insumos agrícolas, insumos veterinarios y, en su etapa actual, el desarrollo de operaciones de comercio internacional.",
+          points: ["Semillas", "Insumos agrícolas", "Insumos veterinarios", "Comercio internacional"],
+        },
+        {
+          title: "Presencia regional",
+          text: "Trabajamos de forma permanente en una de las regiones agrícolas y ganaderas más productivas del país, construyendo relaciones con productores, acopios, procesadores, proveedores y entidades de la cadena.",
+          points: ["Sur de Córdoba", "Este de San Luis", "Norte de La Pampa"],
+        },
+        {
+          title: "Dirección y capital humano",
+          text: "La Presidencia está a cargo del Cr. Carlos Luis Tosso, Contador Público Nacional, con amplia trayectoria en administración, finanzas y comercialización agropecuaria. La dirección se complementa con el Dr. Marcelo Alejandro Houriet, Médico Veterinario con doctorado en Nutrición Animal, quien aporta criterio técnico en sistemas pecuarios y productos para alimentación animal. Esa combinación de mirada comercial y respaldo técnico orienta operaciones ágiles, seguras y enfocadas en el valor de la producción.",
+        },
       ],
       ctaTitle: "Hablemos de una oportunidad concreta",
       ctaText: "Compras, abastecimiento, producción o una consulta institucional.",
@@ -44,14 +55,31 @@ const configs: Record<Locale, Record<InternalKey, Config>> = {
     },
     solutions: {
       eyebrow: "Soluciones",
-      title: "Respuestas comerciales para cada etapa productiva",
-      intro: "Semillas, insumos y capacidades de articulación para productores y empresas de la cadena agropecuaria.",
+      title: "Qué hacemos",
+      intro: "Cuatro unidades de negocio para acompañar la cadena productiva: desde la semilla y los insumos hasta el procesamiento, la nutrición animal y el comercio internacional.",
       image: "/images/products/corn.jpg",
       sections: [
-        { id: "semillas", title: "Semillas", text: "Alternativas para soja, trigo, maíz, pasturas y alfalfa, sujetas a campaña, disponibilidad y lista comercial aprobada.", points: ["Consulta por cultivo y ambiente", "Disponibilidad comercial", "Coordinación de entrega"] },
-        { id: "insumos-agricolas", title: "Insumos agrícolas", text: "Soluciones para acompañar la planificación productiva. Las marcas y productos específicos se publicarán únicamente con autorización." },
-        { id: "insumos-veterinarios", title: "Insumos veterinarios", text: "Una línea orientada a necesidades vinculadas con ganadería y producción animal. Su catálogo definitivo se encuentra pendiente de validación." },
-        { id: "procesamiento", title: "Procesamiento y soluciones logísticas", text: "HT coordina capacidades de selección, acondicionamiento, preparación y movimiento de mercadería según las condiciones de cada operación." },
+        {
+          id: "semillas",
+          title: "Comercialización de semillas",
+          text: "Participamos en la comercialización de semillas para la producción agrícola, con foco en soja y trigo, e incorporando maíz, pasturas y alfalfa según campaña y disponibilidad comercial.",
+          points: ["Soja y trigo", "Maíz, pasturas y alfalfa", "Consulta por ambiente y entrega"],
+        },
+        {
+          id: "insumos-agricolas",
+          title: "Insumos agrícolas",
+          text: "Abastecemos a productores y empresas de la región con insumos destinados al desarrollo de sus campañas. Las marcas y productos específicos se confirman en cada consulta comercial.",
+        },
+        {
+          id: "insumos-veterinarios",
+          title: "Insumos veterinarios",
+          text: "Línea orientada al sector ganadero, pensada para ampliar la propuesta comercial junto a sistemas de producción animal de la región.",
+        },
+        {
+          id: "procesamiento",
+          title: "Procesamiento y coordinación operativa",
+          text: "Coordinamos capacidades de selección, acondicionamiento, preparación y movimiento de mercadería según las condiciones de cada operación.",
+        },
       ],
       ctaTitle: "Contanos qué necesitás",
       ctaText: "Indicá cultivo, producto, localidad o tipo de operación para orientar mejor la respuesta.",
@@ -64,12 +92,22 @@ const configs: Record<Locale, Record<InternalKey, Config>> = {
     processing: {
       eyebrow: "Procesamiento",
       title: "Preparar cada producto para su destino comercial",
-      intro: "Selección, acondicionamiento y coordinación operativa para agregar consistencia y valor a la producción.",
+      intro: "Selección, acondicionamiento y preparación comercial para agregar consistencia y valor a la producción agroindustrial.",
       image: "/images/processing/seed-processing.jpg",
       sections: [
-        { title: "De la materia prima al producto comercial", text: "Cada mercadería exige una secuencia definida de recepción, evaluación, selección, acondicionamiento y preparación para despacho.", points: ["Relevamiento de requerimientos", "Coordinación del proceso", "Preparación comercial", "Organización del despacho"] },
-        { title: "Semillas y productos agroindustriales", text: "La documentación menciona procesamiento de soja, trigo, cebada, avena y centeno. La oferta pública definitiva dependerá de confirmar instalaciones, productos y modalidades vigentes." },
-        { title: "Una capacidad integrada a la operación", text: "HT articula actores y recursos de la cadena. El sitio no atribuye propiedad sobre instalaciones cuya titularidad todavía no fue confirmada." },
+        {
+          title: "De la materia prima al producto comercial",
+          text: "Cada mercadería exige una secuencia definida de recepción, evaluación, selección, acondicionamiento y preparación para despacho.",
+          points: ["Relevamiento de requerimientos", "Coordinación del proceso", "Preparación comercial", "Organización del despacho"],
+        },
+        {
+          title: "Semillas y granos",
+          text: "Trabajamos el procesamiento de soja, trigo, cebada, avena y centeno mediante un esquema integral de selección, acondicionamiento y envasado, orientado a estándares de calidad y eficiencia.",
+        },
+        {
+          title: "Una capacidad integrada a la operación",
+          text: "HT articula actores y recursos de la cadena según cada operación. La titularidad y el alcance exacto de instalaciones se confirman en la conversación comercial.",
+        },
       ],
       ctaTitle: "Evaluemos tu necesidad de procesamiento",
       ctaText: "Contanos producto, origen, destino y servicio requerido.",
@@ -80,13 +118,26 @@ const configs: Record<Locale, Record<InternalKey, Config>> = {
     },
     alfalfa: {
       eyebrow: "Alfalfa y nutrición animal",
-      title: "Producción, abastecimiento y coordinación comercial",
-      intro: "HT vincula oferta agroindustrial con compradores que valoran continuidad, preparación adecuada y logística ordenada.",
+      title: "Abastecimiento con criterio técnico y comercial",
+      intro: "Vinculamos oferta agroindustrial con compradores que valoran continuidad, preparación adecuada y logística ordenada—desde alfalfa en megafardos hasta productos para nutrición animal.",
       image: "/images/alfalfa-megafardos.png",
       sections: [
-        { id: "alfalfa", title: "Alfalfa en megafardos", text: "La empresa compra y comercializa alfalfa, coordinando requerimientos de producto y operación. Las especificaciones, disponibilidad y condiciones se informan en cada consulta.", points: ["Productores y proveedores", "Compradores nacionales", "Consultas de abastecimiento internacional"] },
-        { title: "Un proceso coordinado", text: "Origen, evaluación, acondicionamiento, compactación, almacenamiento y despacho forman parte de la cadena. La participación exacta de HT se define según la operación." },
-        { id: "nutricion-animal", title: "Productos para nutrición animal", text: "HT desarrolla oportunidades con productos agroindustriales destinados a alimentación animal. La lista comercial se publicará una vez aprobada; no se exponen negociaciones, volúmenes ni precios privados." },
+        {
+          id: "alfalfa",
+          title: "Alfalfa en megafardos",
+          text: "Coordinamos compra y comercialización de alfalfa, con un proceso que contempla recolección, controles de calidad, acondicionamiento y despacho. Especificaciones y disponibilidad se informan en cada consulta.",
+          points: ["Productores y proveedores", "Compradores nacionales", "Consultas de abastecimiento internacional"],
+        },
+        {
+          id: "nutricion-animal",
+          title: "Productos para nutrición animal",
+          text: "Desarrollamos oportunidades con productos agroindustriales destinados a alimentación animal, sujetos a disponibilidad y confirmación comercial.",
+          points: ["Afrechillo de trigo", "Harina de soja de alta proteína (High Pro)", "Burlanda seca"],
+        },
+        {
+          title: "Un proceso coordinado",
+          text: "Origen, evaluación, acondicionamiento, compactación, almacenamiento y despacho forman parte de la cadena. El rol exacto de HT se define según la operación.",
+        },
       ],
       ctaTitle: "¿Querés comprar u ofrecer producción?",
       ctaText: "Elegí el motivo de consulta y compartí la información esencial.",
@@ -102,9 +153,19 @@ const configs: Record<Locale, Record<InternalKey, Config>> = {
       intro: "Desarrollamos oportunidades para compradores, importadores, distribuidores y socios que buscan una contraparte agroindustrial en Argentina.",
       image: "/images/alfalfa_jpg.jpg",
       sections: [
-        { title: "Una unidad orientada a nuevos mercados", text: "HT incorporó el comercio internacional a su desarrollo comercial, apoyándose en su conocimiento de origen, proveedores, procesamiento y logística." },
-        { title: "Modelo de trabajo", text: "Cada consulta se analiza según producto, especificación, origen, destino y condiciones operativas.", points: ["Sourcing y vinculación con origen", "Coordinación de información comercial", "Preparación y logística", "Seguimiento de la operación"] },
-        { title: "Información responsable", text: "No publicamos identidades de clientes, precios, volúmenes, negociaciones ni proyecciones. La información adecuada se comparte dentro de una conversación comercial." },
+        {
+          title: "Una unidad orientada a nuevos mercados",
+          text: "HT incorporó el comercio internacional como unidad de negocio estratégica, apoyándose en su conocimiento de origen, proveedores, procesamiento y logística en la región productiva.",
+        },
+        {
+          title: "Modelo de trabajo",
+          text: "Cada consulta se analiza según producto, especificación, origen, destino y condiciones operativas.",
+          points: ["Sourcing y vinculación con origen", "Coordinación de información comercial", "Preparación y logística", "Seguimiento de la operación"],
+        },
+        {
+          title: "Información responsable",
+          text: "No publicamos identidades de clientes, precios, volúmenes ni negociaciones privadas. La información adecuada se comparte dentro de una conversación comercial.",
+        },
       ],
       ctaTitle: "Iniciá una conversación comercial",
       ctaText: "Compartí empresa, país, producto y necesidad de abastecimiento.",
@@ -117,13 +178,24 @@ const configs: Record<Locale, Record<InternalKey, Config>> = {
   en: {
     company: {
       eyebrow: "Company",
-      title: "Agricultural experience with a forward-looking approach",
-      intro: "HT Semillas develops commercial solutions from Huinca Renancó, combining regional knowledge, long-term relationships and new opportunities for Argentine production.",
+      title: "About us",
+      intro: "HT Semillas S.A. is based in Huinca Renancó, Córdoba, with a decade of experience in Argentina’s agricultural business. We provide commercial solutions for growers and the value chain, with a clear path into international trade.",
       image: "/images/company/field-vision.jpg",
       sections: [
-        { title: "Connected to the territory", text: "Our activity began with seed marketing and expanded into agricultural supplies, animal production solutions and international trade.", points: ["Southern Córdoba", "Eastern San Luis", "Northern La Pampa"] },
-        { title: "Knowledge across the value chain", text: "Our work connects growers, contractors, storage operators, processors, conditioning facilities, suppliers and buyers." },
-        { title: "Technical and commercial insight", text: "HT combines experience in administration, agricultural production, animal nutrition and business development." },
+        {
+          title: "History and growth",
+          text: "We began focused on seed marketing—mainly soybean and wheat—and progressively expanded into crop inputs, veterinary supplies and, in our current stage, international trade operations.",
+          points: ["Seeds", "Crop inputs", "Veterinary supplies", "International trade"],
+        },
+        {
+          title: "Regional presence",
+          text: "We work continuously across one of Argentina’s most productive agricultural and livestock regions, building lasting relationships with growers, storage operators, processors, suppliers and partners along the chain.",
+          points: ["Southern Córdoba", "Eastern San Luis", "Northern La Pampa"],
+        },
+        {
+          title: "Leadership and people",
+          text: "The company is chaired by Cr. Carlos Luis Tosso, a Certified Public Accountant with extensive experience in administration, finance and agricultural marketing. Leadership is complemented by Dr. Marcelo Alejandro Houriet, a veterinarian with a doctorate in Animal Nutrition, who brings technical depth in livestock systems and feed products. Together they support agile, reliable operations focused on the value of production.",
+        },
       ],
       ctaTitle: "Let’s discuss a specific opportunity",
       ctaText: "Sourcing, supply, production or an institutional enquiry.",
@@ -134,17 +206,34 @@ const configs: Record<Locale, Record<InternalKey, Config>> = {
     },
     solutions: {
       eyebrow: "Solutions",
-      title: "Commercial answers for every production stage",
-      intro: "Seeds, supplies and coordination capabilities for growers and agricultural companies.",
+      title: "What we do",
+      intro: "Four business units supporting the production chain—from seeds and inputs through processing, animal nutrition and international trade.",
       image: "/images/products/corn.jpg",
       sections: [
-        { id: "seeds", title: "Seeds", text: "Soybean, wheat, corn, forage and alfalfa alternatives, subject to campaign and commercial availability." },
-        { id: "agricultural-supplies", title: "Agricultural supplies", text: "Solutions supporting production planning. Specific brands and products will only be published when authorised." },
-        { id: "veterinary-supplies", title: "Veterinary supplies", text: "A business line serving livestock and animal production needs. The final portfolio is pending validation." },
-        { id: "processing", title: "Processing and logistics", text: "HT coordinates grading, conditioning, preparation and product movement according to each operation." },
+        {
+          id: "seeds",
+          title: "Seed marketing",
+          text: "We market seeds for agricultural production, with a strong focus on soybean and wheat, plus corn, forage and alfalfa according to campaign and commercial availability.",
+          points: ["Soybean and wheat", "Corn, forage and alfalfa", "Environment and delivery enquiry"],
+        },
+        {
+          id: "agricultural-supplies",
+          title: "Crop inputs",
+          text: "We supply growers and regional companies with inputs required for their campaigns. Specific brands and products are confirmed in each commercial conversation.",
+        },
+        {
+          id: "veterinary-supplies",
+          title: "Veterinary supplies",
+          text: "A business line serving livestock producers, expanding our commercial offer alongside regional animal production systems.",
+        },
+        {
+          id: "processing",
+          title: "Processing and operational coordination",
+          text: "We coordinate grading, conditioning, preparation and product movement according to the conditions of each operation.",
+        },
       ],
       ctaTitle: "Tell us what you need",
-      ctaText: "Include your crop, product, location or type of operation.",
+      ctaText: "Share your crop, product, location or type of operation so we can respond with relevance.",
       primary: "Enquire about products",
       secondary: "Offer production",
       ctaImage: "/images/cta/solutions.jpg",
@@ -154,12 +243,22 @@ const configs: Record<Locale, Record<InternalKey, Config>> = {
     processing: {
       eyebrow: "Processing",
       title: "Preparing each product for its commercial destination",
-      intro: "Grading, conditioning and operational coordination add consistency and value to agricultural production.",
+      intro: "Grading, conditioning and commercial preparation add consistency and value to agro-industrial production.",
       image: "/images/processing/seed-processing.jpg",
       sections: [
-        { title: "From raw material to commercial goods", text: "Each product requires a defined sequence of reception, assessment, grading, conditioning and preparation.", points: ["Requirements review", "Process coordination", "Commercial preparation", "Dispatch organisation"] },
-        { title: "Seeds and agro-industrial products", text: "Available products and services are confirmed for each enquiry and operation." },
-        { title: "Integrated capabilities", text: "HT coordinates participants and resources across the value chain. This website does not claim ownership of facilities whose status has not been confirmed." },
+        {
+          title: "From raw material to commercial goods",
+          text: "Each product requires a defined sequence of reception, assessment, grading, conditioning and preparation for dispatch.",
+          points: ["Requirements review", "Process coordination", "Commercial preparation", "Dispatch organisation"],
+        },
+        {
+          title: "Seeds and grains",
+          text: "We process soybean, wheat, barley, oats and rye through an integrated scheme of grading, conditioning and packing, oriented to quality and efficiency standards.",
+        },
+        {
+          title: "Capabilities integrated into the operation",
+          text: "HT coordinates participants and resources across the value chain for each operation. Facility ownership and exact scope are confirmed in the commercial conversation.",
+        },
       ],
       ctaTitle: "Discuss your processing requirement",
       ctaText: "Tell us about the product, origin, destination and required service.",
@@ -170,13 +269,26 @@ const configs: Record<Locale, Record<InternalKey, Config>> = {
     },
     alfalfa: {
       eyebrow: "Alfalfa & animal nutrition",
-      title: "Production, supply and commercial coordination",
-      intro: "HT connects agro-industrial supply with buyers who value continuity, adequate preparation and organised logistics.",
+      title: "Supply with technical and commercial judgement",
+      intro: "We connect agro-industrial supply with buyers who value continuity, proper preparation and organised logistics—from alfalfa bales to animal nutrition products.",
       image: "/images/alfalfa-megafardos.png",
       sections: [
-        { id: "alfalfa", title: "Alfalfa bales", text: "HT buys and markets alfalfa, coordinating product and operational requirements. Specifications and availability are discussed for each enquiry." },
-        { title: "A coordinated process", text: "Origin, assessment, conditioning, compaction, storage and dispatch form part of the value chain. HT’s exact role is defined for each operation." },
-        { id: "animal-nutrition", title: "Animal nutrition products", text: "HT develops opportunities for agro-industrial products used in animal nutrition. Private negotiations, volumes and prices are not published." },
+        {
+          id: "alfalfa",
+          title: "Alfalfa bales",
+          text: "We coordinate alfalfa purchasing and marketing through a process that covers harvesting, quality controls, conditioning and dispatch. Specifications and availability are confirmed for each enquiry.",
+          points: ["Growers and suppliers", "Domestic buyers", "International supply enquiries"],
+        },
+        {
+          id: "animal-nutrition",
+          title: "Animal nutrition products",
+          text: "We develop opportunities for agro-industrial products used in animal feeding, subject to availability and commercial confirmation.",
+          points: ["Wheat bran", "High-protein soybean meal (High Pro)", "Dried distillers grains (burlanda)"],
+        },
+        {
+          title: "A coordinated process",
+          text: "Origin, assessment, conditioning, compaction, storage and dispatch form part of the chain. HT’s exact role is defined for each operation.",
+        },
       ],
       ctaTitle: "Do you want to source or offer production?",
       ctaText: "Choose your enquiry type and share the essential information.",
@@ -192,9 +304,19 @@ const configs: Record<Locale, Record<InternalKey, Config>> = {
       intro: "We develop opportunities for buyers, importers, distributors and partners seeking an agro-industrial counterpart in Argentina.",
       image: "/images/alfalfa_jpg.jpg",
       sections: [
-        { title: "A business unit focused on new markets", text: "HT has added international trade to its commercial development, supported by knowledge of origin, suppliers, processing and logistics." },
-        { title: "How we work", text: "Each enquiry is assessed according to product, specification, origin, destination and operational requirements.", points: ["Sourcing and origin coordination", "Commercial information", "Preparation and logistics", "Operation follow-up"] },
-        { title: "Responsible information", text: "We do not publish client identities, prices, volumes, negotiations or projections. Relevant information is shared in a business conversation." },
+        {
+          title: "A unit focused on new markets",
+          text: "HT has established international trade as a strategic business unit, building on regional knowledge of origin, suppliers, processing and logistics.",
+        },
+        {
+          title: "How we work",
+          text: "Each enquiry is assessed according to product, specification, origin, destination and operational conditions.",
+          points: ["Sourcing and origin coordination", "Commercial information", "Preparation and logistics", "Operation follow-up"],
+        },
+        {
+          title: "Responsible information",
+          text: "We do not publish client identities, prices, volumes or private negotiations. Relevant details are shared within a business conversation.",
+        },
       ],
       ctaTitle: "Start a business conversation",
       ctaText: "Share your company, country, product and sourcing requirement.",
