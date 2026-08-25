@@ -85,13 +85,19 @@ export function Header({ locale }: { locale: Locale }) {
           aria-label="HT Semillas"
         >
           <Image
-            src="/brand/logo-ht.jpg"
-            width={54}
-            height={54}
+            src="/brand/variants/logo-ht-mark.png"
+            width={56}
+            height={56}
             alt=""
-            className="size-12 rounded-full mix-blend-multiply transition duration-200 group-hover:brightness-105"
+            priority
+            className="size-13 rounded-xl transition duration-200 group-hover:brightness-105"
           />
-          <span className="hidden text-[1.05rem] font-bold tracking-[-0.03em] text-forest sm:block">HT SEMILLAS</span>
+          <span className="hidden leading-none sm:block">
+            <span className="block text-[1.05rem] font-bold tracking-[-0.03em] text-forest">HT SEMILLAS</span>
+            <span className="mt-1 block text-[0.58rem] font-bold uppercase tracking-[0.16em] text-forest/55">
+              {locale === "es" ? "Producción que trasciende fronteras" : "Production beyond borders"}
+            </span>
+          </span>
         </Link>
 
         <div className="relative hidden items-center gap-1 xl:flex">

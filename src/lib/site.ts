@@ -10,7 +10,10 @@ export const site = {
   shortName: "HT Semillas",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://htsemillas.com.ar",
   location: "Huinca Renancó, Córdoba, Argentina",
-  region: "Sur de Córdoba, este de San Luis y norte de La Pampa",
+  region: {
+    es: "Toda la provincia de San Luis, sur, centro y este de Córdoba, sur de Santa Fe y norte de La Pampa",
+    en: "Province of San Luis, southern, central and eastern Córdoba, southern Santa Fe and northern La Pampa",
+  },
   address: {
     street: "José Galaverna 700",
     postalCode: "6270",

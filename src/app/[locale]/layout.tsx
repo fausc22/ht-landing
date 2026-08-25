@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { DocumentLang } from "@/components/layout/DocumentLang";
@@ -16,9 +17,13 @@ export default async function LocaleLayout({ children, params }: { children: Rea
   const copy = getContent(value);
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "LocalBusiness"],
+    additionalType: "https://schema.org/AgriculturalBusiness",
     name: site.name,
+    legalName: site.name,
     url: site.url,
+    logo: absoluteLogoUrl(),
+    image: absoluteLogoUrl(),
     email: site.email,
     telephone: site.phone,
     address: {
@@ -29,8 +34,35 @@ export default async function LocaleLayout({ children, params }: { children: Rea
       addressRegion: site.address.region,
       addressCountry: site.address.countryCode,
     },
-    areaServed: ["Sur de Córdoba", "Este de San Luis", "Norte de La Pampa"],
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: -34.8406,
+      longitude: -64.3756,
+    },
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "17:00",
+    },
+    areaServed: [
+      { "@type": "AdministrativeArea", name: "Provincia de San Luis" },
+      { "@type": "AdministrativeArea", name: "Sur, centro y este de Córdoba" },
+      { "@type": "AdministrativeArea", name: "Sur de Santa Fe" },
+      { "@type": "AdministrativeArea", name: "Norte de La Pampa" },
+    ],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: site.phone,
+        contactType: "sales",
+        email: site.email,
+        availableLanguage: ["Spanish", "English"],
+        areaServed: "AR",
+      },
+    ],
   };
+
   return (
     <>
       <DocumentLang locale={value} />
@@ -39,7 +71,11 @@ export default async function LocaleLayout({ children, params }: { children: Rea
       <Header locale={value} />
       <main id="main">{children}</main>
       <Footer locale={value} />
-      <WhatsAppButton locale={value} />
+      <Suspense><WhatsAppButton locale={value} /></Suspense>
     </>
   );
+}
+
+function absoluteLogoUrl() {
+  return new URL("/brand/variants/logo-ht-mark.png", site.url).toString();
 }

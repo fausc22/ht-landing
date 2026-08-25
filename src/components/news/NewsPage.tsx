@@ -49,7 +49,7 @@ export function NewsPage({ locale }: { locale: Locale }) {
                       </time>
                     </p>
                     <h2 className="mt-4 text-2xl font-bold">{item.title}</h2>
-                    <p className="mt-3 leading-7 text-ink/60">{item.excerpt}</p>
+                    <p className="mt-3 leading-7 text-ink/70">{item.excerpt}</p>
                     <Link href={localizedPath(locale, "contact")} className="button-secondary mt-6">
                       {es ? "Leer novedad" : "Read article"}
                       <ArrowRight className="size-4" />

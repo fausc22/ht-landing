@@ -55,7 +55,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .button-primary:hover, .button-secondary:hover { transform: translateY(-2px); }
   .button-primary:hover { background: var(--forest-dark); }
 }
-.nav-link { font-size: .82rem; font-weight: 700; color: color-mix(in srgb, var(--ink), transparent 20%); transition: color .2s ease; }
+.nav-link { font-size: .82rem; font-weight: 700; color: color-mix(in srgb, var(--ink), transparent 15%); transition: color .2s ease; }
 .nav-link:hover { color: var(--forest); }
 .section-pad { padding-block: clamp(3.5rem, 9vw, 8.5rem); }
 .card { border: 1px solid var(--line); border-radius: 1.25rem; background: color-mix(in srgb, white, transparent 10%); }

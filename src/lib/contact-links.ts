@@ -12,6 +12,45 @@ export type ContactIntent =
   | "buy"
   | "supply";
 
+export type FormIntent = "buy" | "supply" | "processing" | "alfalfa" | "international" | "institutional" | "other";
+
+export const contactContexts = [
+  "seeds",
+  "crop-inputs",
+  "processing",
+  "processing-domestic",
+  "processing-export",
+  "alfalfa-buy",
+  "alfalfa-supply",
+  "animal-nutrition",
+  "alfalfa-export",
+  "international-sourcing",
+  "international-distribution",
+  "international-partnership",
+] as const;
+
+export type ContactContext = (typeof contactContexts)[number];
+
+export function formIntentFromParam(raw: string | null): FormIntent {
+  if (["comprar", "buy"].includes(raw ?? "")) return "buy";
+  if (["ofrecer-produccion", "supply"].includes(raw ?? "")) return "supply";
+  if (["internacional", "international"].includes(raw ?? "")) return "international";
+  if (["procesamiento", "processing"].includes(raw ?? "")) return "processing";
+  if (raw === "alfalfa") return "alfalfa";
+  if (["institucional", "institutional"].includes(raw ?? "")) return "institutional";
+  return "other";
+}
+
+export function whatsappIntentFromParam(raw: string | null): ContactIntent {
+  const intent = formIntentFromParam(raw);
+  if (intent === "buy" || intent === "supply" || intent === "processing" || intent === "alfalfa" || intent === "international") return intent;
+  return "contact";
+}
+
+export function contactContextFromParam(raw: string | null): ContactContext | "" {
+  return contactContexts.includes(raw as ContactContext) ? (raw as ContactContext) : "";
+}
+
 const messages: Record<Locale, Record<ContactIntent, string>> = {
   es: {
     general: "Hola, llegué desde el sitio de HT Semillas y quisiera realizar una consulta comercial.",

@@ -139,12 +139,12 @@ export function HeroMedia({ slides, locale }: Props) {
 
       {slides.length > 1 && !reduced && (
         <div className="absolute bottom-5 right-5 z-10 flex items-center gap-2 sm:bottom-8 sm:right-8">
-          <div className="flex gap-1.5">
+          <div className="flex items-center gap-1">
             {slides.map((slide, i) => (
               <button
                 key={slide.src}
                 type="button"
-                className={`h-1.5 min-h-[44px] min-w-[44px] px-2 sm:min-h-0 sm:min-w-0 sm:px-0 ${i === index ? "[&>span]:bg-white" : "[&>span]:bg-white/35"}`}
+                className={`grid h-11 min-w-11 place-items-center sm:h-8 sm:min-w-8 ${i === index ? "[&>span]:bg-white" : "[&>span]:bg-white/35"}`}
                 onClick={() => {
                   setIndex(i);
                   setPaused(true);

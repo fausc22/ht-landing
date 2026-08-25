@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Boxes, Globe2, Handshake, Leaf, Settings2, Sprout, Wheat } from "lucide-react";
+import { ArrowRight, Boxes, Globe2, Handshake, Settings2, Sprout, Wheat } from "lucide-react";
 import { HeroMedia, type HeroSlide } from "@/components/home/HeroMedia";
 import { RegionMap } from "@/components/map/RegionMap";
 import { LineGrow } from "@/components/motion/LineGrow";
@@ -45,25 +45,23 @@ export function Home({ locale }: { locale: Locale }) {
     ? [
         { icon: Sprout, title: "Comprar semillas o insumos", text: "Resolvé tu próxima campaña con una respuesta comercial concreta.", href: `${localizedPath(locale, "contact")}?motivo=comprar` },
         { icon: Handshake, title: "Ofrecer producción", text: "Presentanos producto, ubicación y disponibilidad.", href: `${localizedPath(locale, "contact")}?motivo=ofrecer-produccion` },
-        { icon: Globe2, title: "Explorar comercio internacional", text: "Iniciá una conversación de abastecimiento o distribución.", href: `${localizedPath(locale, "contact")}?motivo=internacional` },
+        { icon: Globe2, title: "Explorar comercio internacional", text: "Iniciá una conversación de abastecimiento o distribución.", href: `${localizedPath(locale, "contact")}?motivo=internacional&context=international-sourcing` },
       ]
     : [
         { icon: Sprout, title: "Source seeds or crop inputs", text: "Get a clear commercial answer for your next campaign.", href: `${localizedPath(locale, "contact")}?intent=buy` },
         { icon: Handshake, title: "Offer production", text: "Share your product, location and availability.", href: `${localizedPath(locale, "contact")}?intent=supply` },
-        { icon: Globe2, title: "Explore international trade", text: "Start a sourcing or distribution conversation.", href: `${localizedPath(locale, "contact")}?intent=international` },
+        { icon: Globe2, title: "Explore international trade", text: "Start a sourcing or distribution conversation.", href: `${localizedPath(locale, "contact")}?intent=international&context=international-sourcing` },
       ];
   const solutions = es
     ? [
-        { icon: Sprout, title: "Semillas", text: "Soja, trigo, maíz, pasturas y alfalfa según campaña y disponibilidad.", anchor: "semillas" },
-        { icon: Wheat, title: "Insumos agrícolas", text: "Insumos para acompañar la planificación de tu campaña.", anchor: "insumos-agricolas" },
-        { icon: Leaf, title: "Insumos veterinarios", text: "Línea orientada a sistemas ganaderos y producción animal.", anchor: "insumos-veterinarios" },
-        { icon: Settings2, title: "Procesamiento", text: "Selección, acondicionamiento y preparación comercial.", anchor: "procesamiento" },
+        { icon: Sprout, title: "Semillas y cultivos", text: "Soja, trigo, maíz, sorgo, girasol, pasturas, alfalfa, cultivos de invierno y de servicio.", anchor: "semillas" },
+        { icon: Wheat, title: "Insumos agrícolas", text: "Agroquímicos, coadyuvantes y soluciones complementarias para la campaña.", anchor: "insumos-agricolas" },
+        { icon: Settings2, title: "Procesamiento y coordinación", text: "Selección, acondicionamiento y preparación para operaciones nacionales y de exportación.", anchor: "procesamiento" },
       ]
     : [
-        { icon: Sprout, title: "Seeds", text: "Soybean, wheat, corn, forage and alfalfa by campaign and availability.", anchor: "seeds" },
-        { icon: Wheat, title: "Crop inputs", text: "Inputs that support campaign planning and production decisions.", anchor: "agricultural-supplies" },
-        { icon: Leaf, title: "Veterinary supplies", text: "A line serving livestock and animal production systems.", anchor: "veterinary-supplies" },
-        { icon: Settings2, title: "Processing", text: "Grading, conditioning and commercial preparation.", anchor: "processing" },
+        { icon: Sprout, title: "Seeds and crops", text: "Soybean, wheat, corn, sorghum, sunflower, forage crops, alfalfa, winter crops and cover crops.", anchor: "seeds" },
+        { icon: Wheat, title: "Crop inputs", text: "Crop protection products, adjuvants and complementary solutions for each campaign.", anchor: "agricultural-supplies" },
+        { icon: Settings2, title: "Processing and coordination", text: "Grading, conditioning and preparation for domestic and export operations.", anchor: "processing" },
       ];
 
   return (
@@ -74,7 +72,20 @@ export function Home({ locale }: { locale: Locale }) {
         <div className="site-container relative flex min-h-[min(100svh-5rem,52rem)] items-end py-14 sm:min-h-[calc(100svh-5rem)] sm:py-24">
           <div className="max-w-5xl pb-12 sm:pb-0">
             <Reveal variant="fadeIn">
-              <p className="eyebrow text-sage">{c.eyebrow}</p>
+              <div className="flex items-center gap-4">
+                <Image
+                  src="/brand/variants/logo-ht-mark.png"
+                  width={68}
+                  height={68}
+                  alt=""
+                  priority
+                  className="size-16 rounded-2xl shadow-lg sm:size-[4.5rem]"
+                />
+                <div>
+                  <p className="text-sm font-extrabold uppercase tracking-[0.14em] text-white">HT Semillas S.A.</p>
+                  <p className="eyebrow mt-2 text-sage">{c.eyebrow}</p>
+                </div>
+              </div>
             </Reveal>
             <Reveal variant="title" delay={0.05}>
               <h1 className="display mt-6 max-w-5xl">{c.title}</h1>
@@ -110,7 +121,7 @@ export function Home({ locale }: { locale: Locale }) {
                 <Link href={item.href} className="card group block h-full p-7 transition hover:-translate-y-1 hover:border-forest/40">
                   <item.icon className="size-8 text-forest" />
                   <h3 className="mt-8 text-xl font-bold">{item.title}</h3>
-                  <p className="mt-3 leading-7 text-ink/60">{item.text}</p>
+                  <p className="mt-3 leading-7 text-ink/70">{item.text}</p>
                   <ArrowRight className="mt-7 size-5 text-forest transition group-hover:translate-x-1" />
                 </Link>
               </StaggerItem>
@@ -149,7 +160,7 @@ export function Home({ locale }: { locale: Locale }) {
             <h2 className="section-title mt-4 max-w-4xl">{c.solutionsTitle}</h2>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-white/65">{c.solutionsIntro}</p>
           </Reveal>
-          <div className="mt-12 grid gap-px overflow-hidden rounded-2xl bg-white/15 md:grid-cols-2">
+          <div className="mt-12 grid gap-px overflow-hidden rounded-2xl bg-white/15 lg:grid-cols-3">
             {solutions.map((item) => (
               <Link
                 key={item.title}
@@ -180,7 +191,7 @@ export function Home({ locale }: { locale: Locale }) {
         eyebrow={es ? "Alfalfa y nutrición animal" : "Alfalfa & animal nutrition"}
         title={c.alfalfaTitle}
         text={c.alfalfaText}
-        image="/images/alfalfa-megafardos.png"
+        image="/images/alfalfa-megafardos.jpg"
         href={localizedPath(locale, "alfalfa")}
         cta={es ? "Consultar por alfalfa" : "Enquire about alfalfa"}
       />

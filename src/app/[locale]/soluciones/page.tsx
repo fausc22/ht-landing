@@ -1,2 +1,14 @@
-import { InternalPage } from "@/components/sections/InternalPage"; import { createMetadata } from "@/lib/metadata";
-export const metadata = createMetadata("es", "solutions"); export default function Page(){ return <InternalPage locale="es" page="solutions"/>; }
+import { SolutionsPage } from "@/components/solutions/SolutionsPage";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbJsonLd, createMetadata } from "@/lib/metadata";
+
+export const metadata = createMetadata("es", "solutions");
+
+export default function Page() {
+  return (
+    <>
+      <JsonLd data={breadcrumbJsonLd("es", "solutions")} />
+      <SolutionsPage locale="es" />
+    </>
+  );
+}
