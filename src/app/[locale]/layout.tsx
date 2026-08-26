@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { DocumentLang } from "@/components/layout/DocumentLang";
+import { HashScroll } from "@/components/layout/HashScroll";
 import { WhatsAppButton } from "@/components/contact/WhatsAppButton";
 import { getContent } from "@/lib/content";
 import { isLocale, locales, site } from "@/lib/site";
@@ -66,6 +67,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
   return (
     <>
       <DocumentLang locale={value} />
+      <HashScroll />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <a href="#main" className="skip-link">{copy.skip}</a>
       <Header locale={value} />

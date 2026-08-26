@@ -30,7 +30,7 @@ const content = {
     title: "Tres actividades, una mirada integral",
     intro:
       "HT Semillas articula semillas y cultivos, insumos agrícolas, y capacidades de procesamiento para acompañar operaciones concretas de la cadena agropecuaria.",
-    heroAlt: "Cultivo de maíz representativo de las soluciones de HT Semillas",
+    heroAlt: "Cultivo de sorgo representativo de las soluciones de HT Semillas",
     heroPrimary: "Consultar por semillas e insumos",
     heroSecondary: "Explorar soluciones",
     activitiesEyebrow: "Qué hacemos",
@@ -116,7 +116,7 @@ const content = {
     title: "Three activities, one integrated approach",
     intro:
       "HT Semillas brings together seeds and crops, crop inputs, and processing capabilities to support specific operations across the agricultural value chain.",
-    heroAlt: "Corn crop representing HT Semillas solutions",
+    heroAlt: "Sorghum crop representing HT Semillas solutions",
     heroPrimary: "Enquire about seeds and inputs",
     heroSecondary: "Explore solutions",
     activitiesEyebrow: "What we do",
@@ -221,7 +221,7 @@ export function SolutionsPage({ locale }: { locale: Locale }) {
           </div>
           <MaskReveal className="relative aspect-[4/3] overflow-hidden rounded-2xl">
             <Image
-              src="/images/products/corn.jpg"
+              src="/images/products/sorghum-field.jpg"
               alt={c.heroAlt}
               fill
               priority

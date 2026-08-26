@@ -100,14 +100,14 @@ export function Header({ locale }: { locale: Locale }) {
           </span>
         </Link>
 
-        <div className="relative hidden items-center gap-1 xl:flex">
+        <div className="relative hidden items-center gap-0.5 lg:flex">
           {items.map((key) => {
             const active = isActive(pathname, locale, key);
             return (
               <Link
                 key={key}
                 href={localizedPath(locale, key)}
-                className={`nav-link relative px-3 py-2 ${active ? "text-forest" : ""}`}
+                className={`nav-link relative px-2.5 py-2 ${active ? "text-forest" : ""}`}
                 aria-current={active ? "page" : undefined}
               >
                 {copy[key]}
@@ -125,13 +125,13 @@ export function Header({ locale }: { locale: Locale }) {
 
         <div className="flex items-center gap-2">
           <LanguageSwitcher locale={locale} />
-          <Link href={localizedPath(locale, "contact")} className="button-primary hidden lg:inline-flex">
+          <Link href={localizedPath(locale, "contact")} className="button-nav hidden lg:inline-flex">
             {copy.talk}
           </Link>
           <button
             ref={buttonRef}
             type="button"
-            className="grid size-11 place-items-center rounded-full border border-forest/15 xl:hidden"
+            className="grid size-11 place-items-center rounded-full border border-forest/15 lg:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-controls={menuId}
@@ -153,7 +153,7 @@ export function Header({ locale }: { locale: Locale }) {
             role="dialog"
             aria-modal="true"
             aria-label={copy.menu}
-            className="border-t border-forest/10 bg-cream px-5 py-5 xl:hidden"
+            className="border-t border-forest/10 bg-cream px-5 py-5 lg:hidden"
             initial={reduced ? { opacity: 0 } : { opacity: 0, height: 0 }}
             animate={reduced ? { opacity: 1 } : { opacity: 1, height: "auto" }}
             exit={reduced ? { opacity: 0 } : { opacity: 0, height: 0 }}
@@ -189,7 +189,7 @@ export function Header({ locale }: { locale: Locale }) {
               <Link
                 href={localizedPath(locale, "contact")}
                 onClick={() => setOpen(false)}
-                className="button-primary mt-3 justify-center"
+                className="button-nav mt-3 min-h-11 justify-center px-5 text-sm"
               >
                 {copy.talk}
               </Link>

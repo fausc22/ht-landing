@@ -9,8 +9,10 @@ export const contactSchema = z.object({
   email: z.string().trim().email().max(160),
   phone: z.string().trim().max(50).optional().default(""),
   location: z.string().trim().min(2).max(120),
-  message: z.string().trim().min(10).max(3000),
+  message: z.string().trim().min(4).max(3000),
   locale: z.enum(["es", "en"]),
   website: z.string().max(0).optional().default(""),
   startedAt: z.coerce.number().int().positive(),
 });
+
+export type ContactPayload = z.infer<typeof contactSchema>;

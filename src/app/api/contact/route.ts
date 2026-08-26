@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { buildContactEmail, intentLabel } from "@/lib/email/contact-notification";
 import { contactSchema } from "@/lib/contact-schema";
+import { site } from "@/lib/site";
 
 const MAX_BODY_BYTES = 25_000;
 const MIN_COMPLETION_MS = 800;
@@ -12,16 +14,6 @@ type RateEntry = { count: number; resetAt: number };
 const runtime = globalThis as typeof globalThis & { htContactRate?: Map<string, RateEntry> };
 const rateStore = runtime.htContactRate ?? new Map<string, RateEntry>();
 runtime.htContactRate = rateStore;
-
-const intentLabels = {
-  buy: "Compra de semillas o insumos",
-  supply: "Oferta de producción",
-  processing: "Procesamiento o acondicionamiento",
-  alfalfa: "Alfalfa y nutrición animal",
-  international: "Comercio internacional",
-  institutional: "Consulta institucional",
-  other: "Otra consulta",
-} as const;
 
 function clientIp(request: Request) {
   return request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || request.headers.get("x-real-ip")?.trim() || null;
@@ -78,32 +70,37 @@ export async function POST(request: Request) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_TO_EMAIL;
+  const to = process.env.CONTACT_TO_EMAIL || site.email;
   const from = process.env.CONTACT_FROM_EMAIL;
-  if (!apiKey || !to || !from) return NextResponse.json({ error: "service_not_configured" }, { status: 503 });
+  if (!apiKey || !from) return NextResponse.json({ error: "service_not_configured" }, { status: 503 });
 
-  const { name, company, email, phone, location, intent, context, message, locale } = parsed.data;
-  const intentLabel = intentLabels[intent];
+  const data = {
+    name: clean(parsed.data.name),
+    company: clean(parsed.data.company),
+    email: clean(parsed.data.email),
+    phone: clean(parsed.data.phone),
+    location: clean(parsed.data.location),
+    intent: parsed.data.intent,
+    context: clean(parsed.data.context || ""),
+    message: clean(parsed.data.message),
+    locale: parsed.data.locale,
+  };
+
+  const email = buildContactEmail(data);
 
   try {
     const resend = new Resend(apiKey);
     const result = await resend.emails.send({
       from,
       to: [to],
-      replyTo: email,
-      subject: `Consulta web HT Semillas · ${intentLabel}`,
-      text: [
-        `Idioma: ${locale}`,
-        `Motivo: ${intentLabel}`,
-        `Contexto: ${context || "-"}`,
-        `Nombre: ${clean(name)}`,
-        `Empresa: ${clean(company) || "-"}`,
-        `Email: ${clean(email)}`,
-        `Teléfono: ${clean(phone) || "-"}`,
-        `Ubicación: ${clean(location)}`,
-        "",
-        clean(message),
-      ].join("\n"),
+      replyTo: data.email,
+      subject: email.subject,
+      html: email.html,
+      text: email.text,
+      tags: [{ name: "intent", value: data.intent }, { name: "locale", value: data.locale }],
+      headers: {
+        "X-HT-Intent": intentLabel(data.intent, "es"),
+      },
     });
     if (result.error) throw new Error(result.error.message);
     return NextResponse.json({ ok: true });

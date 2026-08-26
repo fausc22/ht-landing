@@ -1,7 +1,7 @@
 export const locales = ["es", "en"] as const;
 export type Locale = (typeof locales)[number];
 
-const DEFAULT_EMAIL = "info@htsemillas.com";
+const DEFAULT_EMAIL = "contacto@htsemillas.com";
 const DEFAULT_WHATSAPP = "5492302531296";
 const DEFAULT_PHONE = "+54 9 2302 531296";
 
