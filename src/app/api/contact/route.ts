@@ -71,7 +71,9 @@ export async function POST(request: Request) {
 
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO_EMAIL || site.email;
-  const from = process.env.CONTACT_FROM_EMAIL;
+  const fromRaw = process.env.CONTACT_FROM_EMAIL?.trim();
+  // Display name helps inbox recognition; address must stay on the Resend-verified domain.
+  const from = fromRaw && !fromRaw.includes("<") ? `HT Semillas <${fromRaw}>` : fromRaw;
   if (!apiKey || !from) return NextResponse.json({ error: "service_not_configured" }, { status: 503 });
 
   const data = {

@@ -28,8 +28,8 @@ export const site = {
   phone: process.env.NEXT_PUBLIC_PHONE_NUMBER || DEFAULT_PHONE,
   phones: ["+54 9 2302 531296", "+54 9 2302 579107"] as const,
   teamEmails: [
-    { label: "Marcelo Houriet", email: "mhouriet.htsemillas@gmail.com" },
-    { label: "Carlos Tosso", email: "carlos.htsemillas@gmail.com" },
+    { label: "Marcelo Houriet", email: "mhouriet@htsemillas.com" },
+    { label: "Carlos Tosso", email: "ctosso@htsemillas.com" },
   ] as const,
 } as const;
 

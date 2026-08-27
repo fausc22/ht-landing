@@ -115,8 +115,8 @@ export function LeadForm({ locale }: { locale: Locale }) {
         <h2 className="mt-5 text-2xl font-bold">{es ? "Consulta enviada" : "Enquiry sent"}</h2>
         <p className="mt-3 text-ink/70">
           {es
-            ? "Gracias. El equipo recibió tu mensaje y podrá responder por los datos que informaste. Seguís en la misma página; no hace falta volver al inicio."
-            : "Thank you. Our team received your message and can reply using the details you shared. You remain on this page; there is no need to go back home."}
+            ? "Gracias. El equipo recibió tu mensaje y podrá responder por los datos que informaste."
+            : "Thank you. Our team received your message and can reply using the details you shared."}
         </p>
         {whatsapp ? (
           <TrackedContactLink
