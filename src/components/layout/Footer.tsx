@@ -106,8 +106,20 @@ export function Footer({ locale }: { locale: Locale }) {
           </div>
         </div>
       </div>
-      <div className="border-t border-white/10 py-5 text-center text-xs text-white/75">
-        © {new Date().getFullYear()} HT Semillas S.A. {copy.footer.rights}
+      <div className="border-t border-white/10 py-5 text-xs text-white/75">
+        <div className="site-container flex flex-col items-center justify-center gap-2 text-center sm:flex-row sm:justify-between sm:text-left">
+          <p>
+            © {new Date().getFullYear()} HT Semillas S.A. {copy.footer.rights}
+          </p>
+          <a
+            href="https://portfolio-cantallops.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold tracking-wide text-white/70 transition hover:text-white"
+          >
+            {copy.footer.credit}
+          </a>
+        </div>
       </div>
     </footer>
   );

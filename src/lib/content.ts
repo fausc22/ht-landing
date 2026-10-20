@@ -28,6 +28,7 @@ export const content = {
       terms: "Términos",
       comingSoon: "próximamente",
       rights: "Todos los derechos reservados.",
+      credit: "Desarrollado por FC SOFTWARE",
     },
     home: {
       eyebrow: "Soluciones agroindustriales desde Argentina",
@@ -80,6 +81,7 @@ export const content = {
       terms: "Terms",
       comingSoon: "coming soon",
       rights: "All rights reserved.",
+      credit: "Desarrollado por FC SOFTWARE",
     },
     home: {
       eyebrow: "Agro-industrial solutions from Argentina",
