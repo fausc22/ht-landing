@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BriefcaseBusiness, GraduationCap, MapPin } from "lucide-react";
+import { ArrowRight, BriefcaseBusiness, MapPin } from "lucide-react";
 import { RegionMap } from "@/components/map/RegionMap";
 import { MaskReveal } from "@/components/motion/MaskReveal";
 import { Reveal } from "@/components/motion/Reveal";
@@ -53,19 +53,13 @@ const companyContent = {
     peopleEyebrow: "Dirección y capital humano",
     peopleTitle: "Gestión comercial y respaldo técnico",
     peopleIntro:
-      "La conducción combina experiencia administrativa, conocimiento del negocio agropecuario y formación técnica aplicada a la producción animal.",
+      "La conducción combina experiencia administrativa, conocimiento del negocio agropecuario y una mirada comercial orientada a operaciones sólidas.",
     people: [
       {
         name: "Cr. Carlos Luis Tosso",
         role: "Presidencia · Contador Público Nacional",
         text: "Aporta una amplia trayectoria en administración, finanzas y comercialización agropecuaria, con foco en estructurar operaciones sólidas y relaciones de largo plazo.",
         icon: BriefcaseBusiness,
-      },
-      {
-        name: "Dr. Marcelo Alejandro Houriet",
-        role: "Médico Veterinario · Doctor en Nutrición Animal",
-        text: "Aporta criterio técnico en sistemas pecuarios y productos para alimentación animal, integrando la mirada productiva con las necesidades comerciales.",
-        icon: GraduationCap,
       },
     ],
     ctaTitle: "Hablemos de una oportunidad concreta",
@@ -118,19 +112,13 @@ const companyContent = {
     peopleEyebrow: "Leadership and people",
     peopleTitle: "Commercial management and technical expertise",
     peopleIntro:
-      "Our leadership combines administrative experience, knowledge of the agricultural business and technical training applied to animal production.",
+      "Our leadership combines administrative experience, knowledge of the agricultural business and a commercial focus on sound operations.",
     people: [
       {
         name: "Carlos Luis Tosso",
         role: "President · Public Accountant",
         text: "He brings extensive experience in administration, finance and agricultural marketing, focused on structuring sound operations and long-term relationships.",
         icon: BriefcaseBusiness,
-      },
-      {
-        name: "Dr Marcelo Alejandro Houriet",
-        role: "Veterinarian · Doctor in Animal Nutrition",
-        text: "He contributes technical expertise in livestock systems and animal feed products, connecting production insight with commercial requirements.",
-        icon: GraduationCap,
       },
     ],
     ctaTitle: "Let’s discuss a specific opportunity",

@@ -2,8 +2,8 @@ export const locales = ["es", "en"] as const;
 export type Locale = (typeof locales)[number];
 
 const DEFAULT_EMAIL = "contacto@htsemillas.com";
-const DEFAULT_WHATSAPP = "5492302635232";
-const DEFAULT_PHONE = "+54 9 2302 635232";
+const DEFAULT_WHATSAPP = "5492302579107";
+const DEFAULT_PHONE = "+54 9 2302 579107";
 
 export const site = {
   name: "HT Semillas S.A.",
@@ -26,7 +26,7 @@ export const site = {
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || DEFAULT_EMAIL,
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || DEFAULT_WHATSAPP,
   phone: process.env.NEXT_PUBLIC_PHONE_NUMBER || DEFAULT_PHONE,
-  phones: ["+54 9 2302 635232", "+54 9 2302 579107"] as const,
+  phones: ["+54 9 2302 579107", "+54 9 2302 635232"] as const,
   teamEmails: [
     { label: "German Ezequiel Arguello", email: "garguello@htsemillas.com" },
     { label: "Carlos Tosso", email: "ctosso@htsemillas.com" },
