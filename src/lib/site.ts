@@ -2,8 +2,10 @@ export const locales = ["es", "en"] as const;
 export type Locale = (typeof locales)[number];
 
 const DEFAULT_EMAIL = "contacto@htsemillas.com";
-const DEFAULT_WHATSAPP = "5492302579107";
-const DEFAULT_PHONE = "+54 9 2302 579107";
+/** Teléfono / WhatsApp principal: Carlos Tosso */
+const PRIMARY_PHONE = "+54 9 2302 579107";
+const PRIMARY_WHATSAPP = "5492302579107";
+const ALT_PHONE = "+54 9 2302 635232";
 
 export const site = {
   name: "HT Semillas S.A.",
@@ -24,9 +26,10 @@ export const site = {
     full: "José Galaverna 700, CP 6270, Huinca Renancó, Córdoba, Argentina",
   },
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || DEFAULT_EMAIL,
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || DEFAULT_WHATSAPP,
-  phone: process.env.NEXT_PUBLIC_PHONE_NUMBER || DEFAULT_PHONE,
-  phones: ["+54 9 2302 579107", "+54 9 2302 635232"] as const,
+  // Fijos en código: un env viejo de hosting ya no puede redirigir WhatsApp a otro número.
+  phone: PRIMARY_PHONE,
+  whatsapp: PRIMARY_WHATSAPP,
+  phones: [PRIMARY_PHONE, ALT_PHONE] as const,
   teamEmails: [
     { label: "German Ezequiel Arguello", email: "garguello@htsemillas.com" },
     { label: "Carlos Tosso", email: "ctosso@htsemillas.com" },

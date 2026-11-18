@@ -79,9 +79,10 @@ const messages: Record<Locale, Record<ContactIntent, string>> = {
 };
 
 export function whatsappHref(locale: Locale, intent: ContactIntent = "general") {
-  if (!site.whatsapp) return null;
+  const digits = whatsappDigits(site.phones[0] || site.whatsapp);
+  if (!digits) return null;
   const text = messages[locale][intent] ?? messages[locale].general;
-  return `https://wa.me/${whatsappDigits()}?text=${encodeURIComponent(text)}`;
+  return `https://wa.me/${digits}?text=${encodeURIComponent(text)}`;
 }
 
 export function intentFromPath(pathname: string): ContactIntent {
