@@ -95,6 +95,6 @@ export function telHref(phone: string) {
   return `tel:${phone.replace(/[^\d+]/g, "")}`;
 }
 
-export function whatsappDigits(value = site.whatsapp) {
+export function whatsappDigits(value: string = site.whatsapp) {
   return value.replace(/\D/g, "");
 }
